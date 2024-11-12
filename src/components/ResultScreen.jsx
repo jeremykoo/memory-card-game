@@ -1,19 +1,15 @@
 
-function ResultScreen({ setGameOver, setIsStarting }) {
-  function handlePlayAgain() {
-    setGameOver(false);
-  }
-
-  function handleQuit() {
-    setIsStarting(false);
-    setGameOver(false);
-  }
+function ResultScreen({ selectedSize, size, handleReset, handleGameRestart }) {
+  const win = selectedSize === size;
 
   return (
-    <div>
-      <h1>GAME OVER</h1>
-      <button onClick={handlePlayAgain}>Play Again</button>
-      <button onClick={handleQuit}>Quit</button>
+    <div className='overlay'>
+      <div className='modal'>
+        {win && <h1>You Win!</h1>}
+        {!win && <h1>GAME OVER</h1>}
+        <button onClick={handleGameRestart}>Play Again</button>
+        <button onClick={handleReset}>Quit</button>
+      </div>
     </div>
   );
 }

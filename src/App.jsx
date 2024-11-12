@@ -2,24 +2,31 @@ import { useState } from 'react'
 import './App.css'
 import StartPage from './components/StartPage'
 import Game from './components/Game';
-import ResultScreen from './components/ResultScreen';
+import PokemonAPI from './scripts/pokemonAPI';
 
 function App() {
   const [isStarting, setIsStarting] = useState(false);
   const [pokemonList, setPokemonList] = useState(null);
   const [size, setSize] = useState(0);
-  const [gameOver, setGameOver] = useState(false);
+
+  function handleReset() {
+    setIsStarting(false);
+    setPokemonList(null);
+    setSize(0);
+  }
+
+  async function handleRestart() {
+    const pokemonList = await PokemonAPI().loadPokemonSet(size);
+    setPokemonList(pokemonList);
+    setIsStarting(true);
+  }
 
   return (
-    <div>
-      {gameOver && <ResultScreen setGameOver={setGameOver} setIsStarting={setIsStarting} />}
-      {!gameOver && 
-        (<div className='main-screen'>
-          {!isStarting && <StartPage setIsStarting={setIsStarting} setPokemonList={setPokemonList} setSize={setSize} />}
-          {isStarting && size !== 0 && <Game pokemonList={pokemonList} setPokemonList={setPokemonList} size={size} setGameOver={setGameOver} />}
-        </div>)}
+    <div className='main-screen'>
+      {!isStarting && <StartPage setIsStarting={setIsStarting} setPokemonList={setPokemonList} setSize={setSize} />}
+      {isStarting && size !== 0 && <Game pokemonList={pokemonList} setPokemonList={setPokemonList} size={size} handleReset={handleReset} handleRestart={handleRestart} />}
     </div>
-  )
+  );
 }
 
 export default App

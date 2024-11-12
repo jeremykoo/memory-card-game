@@ -22,7 +22,6 @@ function Card({ name, imageUrl, selected, setSelected, pokemonList, setPokemonLi
       const shuffled = shuffleArray(pokemonList);
       setPokemonList(shuffled);
     } else {
-      console.log('game over');
       setGameOver(true);
     }
   }

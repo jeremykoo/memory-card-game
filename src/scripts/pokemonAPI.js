@@ -19,7 +19,6 @@ function PokemonAPI() {
   }
 
   async function loadPokemonSet(size) {
-    console.log('loading pokemon');
     const randomIds = new Set();
     while (randomIds.size < size) {
       const random = Math.floor(Math.random() * (MAX_POKEMON + 1));
