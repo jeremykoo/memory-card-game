@@ -1,7 +1,12 @@
 import '../styles/startpage.css';
 import PokemonAPI from '../scripts/pokemonAPI';
 
-function StartPage({ setIsStarting, setPokemonList }) {
+function StartPage({ setIsStarting, setPokemonList, setSize }) {
+  const sizeMap = {
+    'Easy': 6,
+    'Medium': 12,
+    'Hard': 18,
+  };
 
   async function initPokemon(size) {
     const pokemonList = await PokemonAPI().loadPokemonSet(size);
@@ -10,16 +15,8 @@ function StartPage({ setIsStarting, setPokemonList }) {
 
   async function handleDifficulty(event) {
     const difficulty = event.target.innerText;
-    let size = 0;
-    if (difficulty === 'Easy') {
-      size = 6;
-    } else if (difficulty === 'Medium') {
-      size = 9;
-    } else {
-      size = 12;
-    }
-
-    
+    const size = sizeMap[difficulty];
+    setSize(size);
     initPokemon(size);
     setIsStarting(true);
   }
