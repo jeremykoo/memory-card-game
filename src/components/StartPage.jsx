@@ -22,7 +22,7 @@ function StartPage({ setIsStarting, setPokemonList, setSize }) {
   }
   
   return (
-    <div>
+    <div className='start-page'>
       <h1>Select a difficulty level!</h1>
       <div className='difficulty-settings'>
         <button onClick={handleDifficulty}>Easy</button>

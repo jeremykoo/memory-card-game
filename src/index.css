@@ -4,6 +4,10 @@
   padding: 0;
 }
 
+.bg-color {
+  background-color: rgb(132, 185, 206);
+}
+
 :root {
   font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;
@@ -11,7 +15,7 @@
 
   color-scheme: light dark;
   color: black;
-  background-color: beige;
+  background-color: skyblue;
 
   font-synthesis: none;
   text-rendering: optimizeLegibility;

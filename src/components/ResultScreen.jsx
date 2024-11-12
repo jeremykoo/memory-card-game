@@ -7,6 +7,7 @@ function ResultScreen({ selectedSize, size, handleReset, handleGameRestart }) {
       <div className='modal'>
         {win && <h1>You Win!</h1>}
         {!win && <h1>GAME OVER</h1>}
+        <h3>Your score is {selectedSize}</h3>
         <button onClick={handleGameRestart}>Play Again</button>
         <button onClick={handleReset}>Quit</button>
       </div>
