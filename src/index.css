@@ -4,10 +4,6 @@
   padding: 0;
 }
 
-.bg-color {
-  background-color: rgb(132, 185, 206);
-}
-
 :root {
   font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;
@@ -15,7 +11,6 @@
 
   color-scheme: light dark;
   color: black;
-  background-color: skyblue;
 
   font-synthesis: none;
   text-rendering: optimizeLegibility;
@@ -23,12 +18,15 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
+html {
+  margin: 0;
+  height: 100%;
+}
+
 body {
   margin: 0;
   display: flex;
   place-items: center;
-  min-width: 320px;
-  min-height: 100vh;
 }
 
 h1 {

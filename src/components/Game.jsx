@@ -33,7 +33,7 @@ function Game({ pokemonList, setPokemonList, size, handleReset, handleRestart })
       <div>
         {gameOver ? <ResultScreen selectedSize={selected.size} size={size} handleReset={handleReset} handleGameRestart={handleGameRestart} /> : null}
         <div className='game-screen'>
-          <h1>Card Game</h1>
+          <h1>Pokemon Memory Game</h1>
           <Score score={score} highScore={highScore}/>
           <p>{score} / {size}</p>
           <div className='deck'>
@@ -44,7 +44,7 @@ function Game({ pokemonList, setPokemonList, size, handleReset, handleRestart })
         </div>
       </div>
     ) : (
-      <h1>Loading data...</h1>
+      <h1 className="start-page">Loading data...</h1>
     ))
   );
 }
